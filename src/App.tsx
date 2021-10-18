@@ -22,7 +22,7 @@ const Checkout = ({ cart, rules }: {cart: ProductCode[], rules: rule[]}): JSX.El
      return uniqueItems.map(itemType => {
        const count = cartItems.filter(i => i === itemType).length;
        const price = allProducts.find(i => i.code === itemType)?.price ?? 0;
-        return rules.find(e => e.code === itemType)?.rule(count, price) ?? (count * price);
+       return rules.find(e => e.code === itemType)?.rule(count, price) ?? (count * price);
     }).reduce((a, b) => a + b, 0).toFixed(2);
   }
 
